@@ -19,21 +19,24 @@ end
 
 
 namespace '/api/v1' do
-    
+
     get '/status' do
         status 200
         "OK"
     end
 
-    get '/parse' do
-        text = params['text']
-        if !text
-            status 401
-            "text param required!"
-        else
-            result = AnyStyle.parse(text)
-            content_type :json
-            result.to_json
-        end    
+    post '/parse' do
+      request.body.rewind  # in case someone already read it
+      data = JSON.parse(request.body.read)
+
+      text = data['text']
+      if !text
+          status 400
+          "text param required!"
+      else
+          result = AnyStyle.parse(text)
+          content_type :json
+          result.to_json
+      end
     end
 end
