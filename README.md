@@ -34,12 +34,12 @@ Spin up the server
 #### Parse reference text
 
 ```http
-  GET /api/v1/parse
+  POST /api/v1/parse
 ```
 
-| Parameter | Type     | Description                                                  |
-| :-------- | :------- | :----------------------------------------------------------- |
-| `text`    | `string` | **Required**. reference text to be parsed into a json object |
+| JSON Key | Type     | Description                                                  |
+| :------- | :------- | :----------------------------------------------------------- |
+| `text`   | `string` | **Required**. reference text to be parsed into a json object |
 
 ## Contributing
 
