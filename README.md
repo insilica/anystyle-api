@@ -3,6 +3,12 @@
 A very minimal Sinatra Ruby API server implementation of AnyStyle Gem to parse
 academic reference texts into CSL-JSON.
 
+## Usage
+
+```bash
+nix run github:insilica/anystyle-api
+```
+
 ## Development
 
 clone this repo
