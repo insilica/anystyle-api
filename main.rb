@@ -34,8 +34,14 @@ namespace '/api/v1' do
           status 400
           "text param required!"
       else
-          result = AnyStyle.parse(text)
           content_type :json
+          result = AnyStyle.parse(text, format: 'csl')
+          # Correct mismatch with citation-data.json spec
+          result.each do |entry|
+            if entry.key?("issued")
+              entry["issued"] = { literal: entry["issued"] }
+            end
+          end
           result.to_json
       end
     end
