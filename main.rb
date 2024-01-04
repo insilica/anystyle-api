@@ -38,6 +38,8 @@ namespace '/api/v1' do
           result = AnyStyle.parse(text, format: 'csl')
           # Correct mismatch with citation-data.json spec
           result.each do |entry|
+            entry[:type] = "article" if entry[:type].nil?
+
             if entry.key?(:author)
               entry[:author].each do |author|
                 if author.key?(:particle)
