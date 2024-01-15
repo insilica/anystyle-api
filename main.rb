@@ -4,7 +4,9 @@ require "sinatra/namespace"
 require "sinatra/cors"
 require 'anystyle'
 
-
+# Retrieve port number from command line arguments or use default
+port_number = ARGV[0] || 4567
+set :port, port_number
 
 # CORS configs
 set :allow_origin, "*"
