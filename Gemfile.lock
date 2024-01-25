@@ -41,6 +41,7 @@ GEM
       rexml (~> 3.0)
 
 PLATFORMS
+  arm64-darwin-22
   x64-mingw-ucrt
   x86_64-linux
 
